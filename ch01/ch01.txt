@@ -1,0 +1,87 @@
+These solutions are experiments with the scala REPL.
+
+
+1. Press [TAB] after "3." to show available methods on a number:
+
+scala> 3.
+%              &              *              +              -              /              >              >=             
+>>             >>>            ^              asInstanceOf   isInstanceOf   toByte         toChar         toDouble       
+toFloat        toInt          toLong         toShort        toString       unary_+        unary_-        unary_~        
+|              
+
+scala> 3.
+
+
+---
+
+3. The |res| things in the REPL are vale not vars. If you try to assign a new value to one, you get an error:
+
+...
+res6: String = Difference: 4.440892098500626E-16
+
+scala> res6 = 123
+<console>:16: error: reassignment to val
+       res6 = 123
+            ^
+
+---
+
+4.
+scala> "crazy" * 3
+res7: String = crazycrazycrazy
+
+In the scaladoc, the "*" method is in StringOps class and the StringLike trait.
+
+---
+
+5.
+10 max 2
+means
+10.max(2)
+
+max function is in RichInt class.
+
+---
+6.
+BigInt(2).pow(1024)
+res2: scala.math.BigInt = 179769313486231590772930519078902473361797697894230657273430081157732675805500963132708477322407536021120113879871393357658789768814416622492847430639474124377767893424865485276302219601246094119453082952085005768838150682342462881473913110540827237163350510684586298239947245938479716304835356329624224137216
+
+---
+
+9.
+Getting the first char of a string:
+
+scala> "hello"(0)
+res5: Char = h
+
+and the last char:
+
+scala> "hello".last
+res6: Char = o
+
+---
+
+10.
+
+scala> "hello".take(2)
+res0: String = he
+
+StringOps |take| method keeps the given number of left-most chars and discards the rest.
+
+scala> "hello".drop(2)
+res1: String = llo
+
+StringOps |drop| method discards the given number of left-most chars and keeps the rest.
+
+scala> "hello".takeRight(2)
+res2: String = lo
+
+StringOps |takeRight| method keeps the given number of right-most chars and discards the rest to the left of these.
+
+scala> "hello".dropRight(2)
+res3: String = hel
+
+StringOps |dropRight| method discards the given number of right-most chars and keeps the rest to the left of these.
+
+Having these 4 methods are more expressive than using the |substring| method IMHO. I was never a fan of the slightly obscure parameters of |substring|.
+
